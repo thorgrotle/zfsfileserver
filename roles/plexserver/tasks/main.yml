@@ -13,6 +13,10 @@
     url: https://downloads.plex.tv/plex-keys/PlexSign.key
     state: present
 
+- name: update apt-cache
+  apt:
+    update_cache: yes
+
 - name: Install Plexmediaserver
   package:
     name: plexmediaserver
