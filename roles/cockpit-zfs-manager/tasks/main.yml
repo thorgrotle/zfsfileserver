@@ -18,3 +18,7 @@
        shadow: localtime = yes	
        vfs objects = acl_xattr shadow_copy2
    notify: restartservicesamba
+
+ - name: Force all notified handlers to run at this point, not waiting for normal sync points
+   meta: flush_handlers
+   
