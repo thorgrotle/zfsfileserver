@@ -2,7 +2,7 @@
  - name: Install Cockpit-zfs manager
    git:
     repo: 'https://github.com/optimans/cockpit-zfs-manager.git'
-    dest: /usr/share/cockpit
+    dest: /usr/share/cockpit/zfs
     clone: yes
    notify: startservicecockpit
 
