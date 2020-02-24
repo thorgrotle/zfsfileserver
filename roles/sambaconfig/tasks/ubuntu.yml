@@ -1,0 +1,6 @@
+---
+- name: installing Samba - Windows File sharing
+  package: name=samba state=latest
+  notify: startservicesamba
+
+

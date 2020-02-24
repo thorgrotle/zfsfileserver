@@ -1,0 +1,36 @@
+---
+- name: install ifupdown
+  package: name=ifupdown state=latest
+
+- name: Copy network config
+  template:
+    src: interfaces.j2
+    dest: /etc/network/interfaces
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy resolv.conf config
+  template:
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: remove netplan
+  package: name=netplan.io state=absent
+
+
+- name: remove netmanager
+  package: name=network-manager state=absent
+
+- name: Stop systemd-resolved
+  service:
+    name: systemd-resolved
+    state: stopped
+    enabled: no
+
+- name: remove netplan files
+  file: path=' /etc/netplan/' state=absent
+

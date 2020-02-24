@@ -1,0 +1,9 @@
+--- 
+ - name: Install Cockpit
+   package: name={{ item }} state=latest
+   with_items:
+    - cockpit
+    - cockpit-storaged
+    - cockpit-pcp
+    - cockpit-bridge
+   notify: startservicecockpit

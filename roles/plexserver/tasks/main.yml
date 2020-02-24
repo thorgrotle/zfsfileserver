@@ -1,0 +1,21 @@
+---
+- name: Add apt.source.list.d - Directory
+  file: path="/etc/apt/source.list.d" state=directory mode=0755
+
+- name: Add Plex PPA - File
+  copy:
+    src: files/plexmediaserver.list
+    dest: /etc/apt/source.list.d/plexmediaserver.list
+    mode: '0644'
+
+- name: Add an Apt signing key, will not download if present
+  apt_key:
+    url: https://downloads.plex.tv/plex-keys/PlexSign.key
+    state: present
+
+- name: Install Plexmediaserver
+  package:
+    name: plexmediaserver
+    state: present
+    update_cache: yes
+  notify: startserviceplex

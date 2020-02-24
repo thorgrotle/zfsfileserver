@@ -1,0 +1,5 @@
+---
+
+- name: startserviceplex
+  service: name=plexmediaserver state=started enabled=yes
+     

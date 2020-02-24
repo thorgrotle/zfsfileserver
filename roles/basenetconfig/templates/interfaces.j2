@@ -1,0 +1,13 @@
+## template for adding to interfaces to bridge
+allow-hotplug {{ LANNIC }}
+auto {{ LANNIC }}
+iface {{LANNIC }} inet manual
+   preup-ifconfig $IFACE up
+   postdown-ifconfi $IFACE down
+
+auto virbr0
+iface virbr0 inet static
+   address {{ LANIP }}/{{ SUBNET }}
+   gateway {{ LANGATE }}
+   bridge_ports {{ BRIDGENIC }}
+   up /usr/sbin/brctl stp virbr0 on

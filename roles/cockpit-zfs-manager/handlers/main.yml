@@ -1,0 +1,7 @@
+---
+- name: startservicecockpit
+  service: name=cockpit state=restarted enabled=yes
+  
+  
+- name: restartservicesamba
+  service: name=samba state=restarted enabled=yes

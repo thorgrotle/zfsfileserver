@@ -1,0 +1,3 @@
+---
+- name: startservicesamba
+  service: name=smbd state=restarted enabled=yes

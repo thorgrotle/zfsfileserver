@@ -1,0 +1,12 @@
+---
+- name: check zpool
+  zpool_facts: pool={{ ZPOOL }}
+  ignore_errors: True
+  register: status
+
+- name: fail the play if the previous command did not succeed
+  raw: zpool import -f {{ ZPOOL }}
+  ignore_errors: true
+  when: status.failed
+  notify: setmountpoint
+

@@ -1,0 +1,4 @@
+---
+
+- name: setmountpoint
+  raw: zfs set mountpoint={{ ZPOOLMOUNTPOINT }} {{ ZPOOL }}

@@ -1,0 +1,22 @@
+--- 
+ - name: Install base apps from main repo
+#   apt: name={{ item }} state=installed
+   package: name={{ item }} state=latest
+   with_items:
+    - wget
+    - nano
+    - zfsutils-linux
+    - ntfs-3g
+    - exfat-utils 
+    - tmux # split terminal / background
+    - at # scheduler
+    - git 
+    - gitg
+    - net-tools
+    - traceroute
+    - mc # Midnight commander
+    - sysstat # system information
+    - htop # system information
+    - bwm-ng # network information
+    - bridge-utils
+    - tuned # power profiles

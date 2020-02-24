@@ -1,0 +1,30 @@
+--- # this will install ubuntu 19.10 as with zfs & zfs cockpit + zfs-cockpit-manager & Plexserver
+- hosts: localhost
+  gather_facts: yes
+  user: root
+# connection: ssh
+  connection: local
+  become: yes
+
+  vars:
+    HOSTNAME: ubuserv
+    LANNIC: enp0s25
+    LANIP: 10.0.75.250
+    LANDNS: 10.0.75.2
+    LANGATE: 10.0.75.2
+    SUBNET: 24
+    BRIDGENIC: enp0s25
+    ZPOOL: zstore
+    ZPOOLMOUNTPOINT: /mnt/zstore
+
+  roles:
+   - baseappsserv
+#   - basenetconfig
+   - cockpit
+   - cockpit-zfs-manager
+   - zfsimport
+   - sambaconfig
+   - plexserver
+#   - plexconfigdata
+
+

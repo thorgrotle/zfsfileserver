@@ -1,0 +1,9 @@
+--- # this will install libvirt kvm and qemu on host
+- name: installing virtualizing platform
+  apt: name={{ item }} state=latest
+  with_items:
+   - qemu-kvm
+   - libvirt-clients
+   - libvirt-daemon-system
+   - virt-manager
+  notify: start service libvirt
