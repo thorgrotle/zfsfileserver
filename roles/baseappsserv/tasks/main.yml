@@ -20,3 +20,4 @@
     - bwm-ng # network information
     - bridge-utils
     - tuned # power profiles
+    - samba
