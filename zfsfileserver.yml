@@ -20,10 +20,10 @@
   roles:
    - baseappsserv
 #   - basenetconfig
+   - sambaconfig
    - cockpit
    - cockpit-zfs-manager
    - zfsimport
-   - sambaconfig
    - plexserver
 #   - plexconfigdata
 
