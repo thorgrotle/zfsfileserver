@@ -4,6 +4,6 @@
    with_items:
     - cockpit
     - cockpit-storaged
-    - cockpit-pcp
+    #- cockpit-pcp
     - cockpit-bridge
    notify: startservicecockpit
